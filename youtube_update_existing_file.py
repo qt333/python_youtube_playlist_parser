@@ -14,7 +14,6 @@ CHAT_ID = os.getenv("CHAT_ID")
 PLAYLIST_ID = os.getenv("PLAYLIST_ID")
 PLAYLIST_NAME = os.getenv("PLAYLIST_NAME", "1")
 
-EXISTING_PLAYLIST_TITLES = []
 PLAYLIST_NAME_PATH = f"youtube_playlist_{PLAYLIST_NAME}.txt"
 
 date = dt.now().strftime("%d-%m-%Y")
@@ -31,16 +30,18 @@ root_dir = os.getcwd() + os.sep
 def main():
     print("Script starting...")
     print(f"Get all playlist items from playlist '{PLAYLIST_NAME}' | ID:{PLAYLIST_ID}")
-
+    
     # Update your Google API-KEY with the developerKey
     youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=DEV_KEY)
-
+    
     request = youtube.playlistItems().list(
         part="snippet", playlistId=PLAYLIST_ID, maxResults=50
     )
     response = request.execute()
 
+    EXISTING_PLAYLIST_TITLES = []
     playlist_items = []
+    
     while request is not None:
         response = request.execute()
         playlist_items += response["items"]
