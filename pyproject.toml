@@ -1,0 +1,16 @@
+[project]
+name = "python-youtube-playlist-parser"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dotenv==0.9.9",
+    "google-api-core==2.25.1",
+    "google-api-python-client==2.179.0",
+    "google-auth==2.40.3",
+    "google-auth-httplib2==0.2.0",
+    "googleapis-common-protos==1.70.0",
+    "python-dotenv==1.1.1",
+    "ujson==5.11.0",
+]

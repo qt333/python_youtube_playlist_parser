@@ -1,4 +1,9 @@
 *.txt
 *.json
 .env
-!req.txt
+!requirements.txt
+.venv/
+venv/
+*.rar
+*.spec
+uv.lock
